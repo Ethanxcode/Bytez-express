@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 15s  # Tần suất thu thập dữ liệu (15 giây)
+
+scrape_configs:
+  # Cấu hình Prometheus giám sát chính nó
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Cấu hình giám sát dịch vụ node_app
+  - job_name: 'node_app'
+    static_configs:
+      - targets: ['node_app:3000']  # Gọi tên container node_app và port của nó
